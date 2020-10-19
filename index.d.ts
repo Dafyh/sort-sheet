@@ -3,7 +3,7 @@ declare namespace sortutil {
     /**
      * @default []
      */
-    orderBy: "asc" | "desc";
+    orderBy?: "asc" | "desc";
     sortBy: string;
   }
 }
@@ -14,7 +14,7 @@ declare namespace sortutil {
  */
 declare function sortutil<T>(
   arr: T,
-  opts:  Array<sortutil.Opts>
+  opts?:  Array<sortutil.Opts>
 ): T;
 
 export = sortutil;

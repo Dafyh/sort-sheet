@@ -16,9 +16,9 @@ module.exports = (arr, opts = []) => {
     opts
       .map(({ orderBy, sortBy }) => {
         const [prev, next] = [getFldVal(a, sortBy), getFldVal(b, sortBy)];
-        const val = Number.isNaN(Number(prev)) ? prev - next : String(prev).localeCompare(String(next));
+        const val = !Number.isNaN(Number(prev)) ? prev - next : String(prev).localeCompare(String(next));
 
-        return orderBy === "asc" ? val : -val;
+        return ((prev && next) ?? 0) === 0 ? 0 : orderBy === "desc" ? -val : val;
       })
       .find(Boolean),
   );
