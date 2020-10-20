@@ -1,25 +1,25 @@
-const sortutil = require("../index");
+const sortSheet = require("../index");
 
 it("should throw an error if first argument is not an array", () => {
-  expect(() => sortutil(1)).toThrowError("Expected an array");
+  expect(() => sortSheet(1)).toThrowError("Expected an array");
 });
 
 it("should throw an error if second argument is not an array", () => {
-  expect(() => sortutil([], 1)).toThrowError("Expected an array");
+  expect(() => sortSheet([], 1)).toThrowError("Expected an array");
 });
 
 it("should throw an error if there is not at least one sortBy key", () => {
-  expect(() => sortutil([], [{}])).toThrowError("sortBy key is required");
+  expect(() => sortSheet([], [{}])).toThrowError("sortBy key is required");
 });
 
 it("should order by 'asc' by default", () => {
-  expect(sortutil([{ a: 5 }, { a: 2 }], [{ sortBy: "a" }])).toEqual([{ a: 2 }, { a: 5 }]);
+  expect(sortSheet([{ a: 5 }, { a: 2 }], [{ sortBy: "a" }])).toEqual([{ a: 2 }, { a: 5 }]);
 });
 
 it("should copy the initial array", () => {
   const arrayToSorted = [{ a: 5 }, { a: 2 }];
 
-  expect(sortutil(arrayToSorted, [{ orderBy: "asc", sortBy: "a" }])).toEqual([{ a: 2 }, { a: 5 }]);
+  expect(sortSheet(arrayToSorted, [{ orderBy: "asc", sortBy: "a" }])).toEqual([{ a: 2 }, { a: 5 }]);
   expect(arrayToSorted).toEqual([{ a: 5 }, { a: 2 }]);
 });
 
@@ -39,7 +39,7 @@ it("should return a sorted array", () => {
     { a: "w", b: 41, c: { d: undefined } },
   ];
 
-  const arraySorted = sortutil(arrayToSorted, [
+  const arraySorted = sortSheet(arrayToSorted, [
     { orderBy: "asc", sortBy: "a" },
     { orderBy: "desc", sortBy: "c.d.e" },
     { orderBy: "asc", sortBy: "b" },

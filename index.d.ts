@@ -1,4 +1,4 @@
-declare namespace sortutil {
+declare namespace sortSheet {
   interface Opts {
     /**
      * @default []
@@ -12,9 +12,9 @@ declare namespace sortutil {
  * 
  * @returns An array sorted
  */
-declare function sortutil<T>(
+declare function sortSheet<T>(
   arr: T,
-  opts?:  Array<sortutil.Opts>
+  opts?:  Array<sortSheet.Opts>
 ): T;
 
-export = sortutil;
+export = sortSheet;

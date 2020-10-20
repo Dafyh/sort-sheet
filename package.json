@@ -1,17 +1,25 @@
 {
-  "name": "sortutil",
-  "version": "1.0.0",
+  "name": "sort-sheet",
+  "version": "1.0.1",
   "main": "index.js",
   "types": "index.d.ts",
-  "description": "Sort multiple columns in array",
+  "description": "Sort like a spreadsheet",
   "license": "MIT",
+  "repository": "dafyh/sort-sheet",
   "engines": {
-    "node": ">=12.16.1"
+    "node": ">=10"
   },
   "scripts": {
     "test": "jest"
   },
-  "keywords": [],
+  "keywords": [
+    "array",
+    "columns",
+    "sheet",
+    "sort",
+    "spreadsheet",
+    "stable"
+  ],
   "author": "MARTEAU Nicolas <nico_mart@hotmail.fr>",
   "devDependencies": {
     "@babel/preset-env": "^7.11.5",
