@@ -23,6 +23,22 @@ it("should copy the initial array", () => {
   expect(arrayToSorted).toEqual([{ a: 5 }, { a: 2 }]);
 });
 
+it("should sort boolean", () => {
+  const arrayToSorted = [{ a: false }, { a: true }, { a: false }];
+
+  expect(sortSheet(arrayToSorted, [{ orderBy: "asc", sortBy: "a" }])).toEqual([
+    { a: false },
+    { a: false },
+    { a: true },
+  ]);
+});
+
+it("should keep indice with following values: undefined, null, empty string", () => {
+  const arrayToSorted = [{ a: undefined }, { a: null }, { a: undefined }, { a: "" }, { a: null }];
+
+  expect(sortSheet(arrayToSorted, [{ orderBy: "asc", sortBy: "a" }])).toEqual(arrayToSorted);
+});
+
 it("should return a sorted array", () => {
   const arrayToSorted = [
     { a: "a", b: 1, c: { d: { e: new Date(2020, 10, 8, 22) } } },

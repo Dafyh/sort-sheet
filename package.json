@@ -1,6 +1,6 @@
 {
   "name": "sort-sheet",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "types": "index.d.ts",
   "description": "Sort like a spreadsheet",
@@ -15,6 +15,7 @@
   "keywords": [
     "array",
     "columns",
+    "multiple",
     "sheet",
     "sort",
     "spreadsheet",
