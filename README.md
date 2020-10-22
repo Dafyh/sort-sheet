@@ -1,4 +1,4 @@
-# sort-sheet ![Version](https://img.shields.io/github/package-json/v/dafyh/sort-sheet) ![License](https://img.shields.io/github/license/dafyh/sort-sheet) ![Build Status](https://img.shields.io/travis/com/dafyh/sort-sheet) ![Coverage](https://img.shields.io/codecov/c/github/dafyh/sort-sheet)
+# sort-sheet ![Version](https://img.shields.io/github/package-json/v/dafyh/sort-sheet) ![size](https://img.shields.io/bundlephobia/min/sort-sheet) ![License](https://img.shields.io/github/license/dafyh/sort-sheet) ![dependencies](https://img.shields.io/david/dafyh/sort-sheet) ![Build Status](https://img.shields.io/travis/com/dafyh/sort-sheet) ![Coverage](https://img.shields.io/codecov/c/github/dafyh/sort-sheet)
 
 Useful to sort an array like a spreadsheet.
 
