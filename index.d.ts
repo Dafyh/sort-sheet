@@ -1,5 +1,5 @@
 declare namespace sortSheet {
-  interface Opts {
+  interface Option {
     /**
      * @default []
      */
@@ -14,7 +14,7 @@ declare namespace sortSheet {
  */
 declare function sortSheet<T>(
   arr: T,
-  opts?:  Array<sortSheet.Opts>
+  opts?:  Array<sortSheet.Option>
 ): T;
 
 export = sortSheet;

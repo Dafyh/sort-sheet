@@ -55,10 +55,10 @@ Type: `Array`
 
 #### options
 
-Type: `Options[]`
+Type: `Option[]`
 
 ```ts
-interface Options {
+interface Option {
  /**
   * @default []
   */
