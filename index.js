@@ -3,7 +3,7 @@
 // Require Internals Dependencies
 const { getFldVal } = require("./src/utils");
 
-module.exports = (arr, opts = []) => {
+module.exports = (arr, opts) => {
   if (!Array.isArray(arr) || !Array.isArray(opts)) {
     throw new TypeError("Expected an array");
   }
@@ -16,6 +16,11 @@ module.exports = (arr, opts = []) => {
     opts
       .map(({ orderBy, sortBy }) => {
         const [prev, next] = [getFldVal(a, sortBy), getFldVal(b, sortBy)];
+
+        if (typeof orderBy === "function") {
+          return orderBy(prev, next);
+        }
+
         const val = !Number.isNaN(Number(prev)) ? prev - next : String(prev).localeCompare(String(next));
 
         return typeof prev !== "boolean" && (!prev || !next) ? 0 : orderBy === "desc" ? -val : val;

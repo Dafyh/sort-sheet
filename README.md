@@ -11,7 +11,7 @@ $ npm install sort-sheet
 ## Usage
 
 ```js
-const sortSheet = require('sort-sheet');
+const sortSheet = require("sort-sheet");
 
 sortSheet([{ k1: "a", k2: 1 }, { k1: "b", k2: 20 }, { k1: "a", k2: 6 }], [
  { orderBy: "asc", sortBy: "k1" }, // Sort by
@@ -41,6 +41,15 @@ sortSheet(
  { k1: "a", k2: { k3: "t" } },
 ]
 */
+
+sortSheet(
+ [{ k1: Array(1).fill("foo") }, { k1: Array(3).fill("bar") }, { k1: Array(2).fill("baz") }],
+ [
+  { orderBy: (a, b) => a.length - b.length, sortBy: "k1" }, // Sort by
+ ],
+);
+
+//=> [{ k1: [ "foo" ] }, { k1: [ "baz", "baz" ] }, { k1: [ "bar", "bar", "bar" ] }]
 ```
 
 ## API
@@ -59,10 +68,9 @@ Type: `Option[]`
 
 ```ts
 interface Option {
- /**
-  * @default []
-  */
- orderBy?: "asc" | "desc";
+ orderBy?: "asc" | "desc" | Function;
  sortBy: string;
 }
 ```
+
+[orderBy function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)

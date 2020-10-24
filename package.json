@@ -1,6 +1,6 @@
 {
   "name": "sort-sheet",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "main": "index.js",
   "types": "index.d.ts",
   "description": "Sort like a spreadsheet",
