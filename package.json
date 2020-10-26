@@ -1,9 +1,10 @@
 {
   "name": "sort-sheet",
-  "version": "1.1.0",
+  "version": "1.1.2",
+  "description": "Sort like a spreadsheet",
+  "author": "MARTEAU Nicolas <nico_mart@hotmail.fr>",
   "main": "index.js",
   "types": "index.d.ts",
-  "description": "Sort like a spreadsheet",
   "license": "MIT",
   "repository": "dafyh/sort-sheet",
   "engines": {
@@ -12,16 +13,22 @@
   "scripts": {
     "test": "jest"
   },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "src/utils.js"
+  ],
   "keywords": [
     "array",
     "columns",
+    "excel",
     "multiple",
     "sheet",
     "sort",
     "spreadsheet",
-    "stable"
+    "stable",
+    "table"
   ],
-  "author": "MARTEAU Nicolas <nico_mart@hotmail.fr>",
   "devDependencies": {
     "@babel/preset-env": "^7.11.5",
     "@types/jest": "^26.0.14",

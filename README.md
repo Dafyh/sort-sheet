@@ -1,4 +1,5 @@
-# sort-sheet ![Version](https://img.shields.io/github/package-json/v/dafyh/sort-sheet) ![size](https://img.shields.io/bundlephobia/min/sort-sheet) ![License](https://img.shields.io/github/license/dafyh/sort-sheet) ![dependencies](https://img.shields.io/david/dafyh/sort-sheet) ![Build Status](https://img.shields.io/travis/com/dafyh/sort-sheet) ![Coverage](https://img.shields.io/codecov/c/github/dafyh/sort-sheet)
+# sort-sheet
+![Version](https://img.shields.io/github/package-json/v/dafyh/sort-sheet) ![size](https://img.shields.io/bundlephobia/min/sort-sheet) ![License](https://img.shields.io/github/license/dafyh/sort-sheet) ![dependencies](https://img.shields.io/david/dafyh/sort-sheet) ![Build Status](https://img.shields.io/travis/com/dafyh/sort-sheet) ![Coverage](https://img.shields.io/codecov/c/github/dafyh/sort-sheet)
 
 Useful to sort an array like a spreadsheet.
 
@@ -43,13 +44,22 @@ sortSheet(
 */
 
 sortSheet(
- [{ k1: Array(1).fill("foo") }, { k1: Array(3).fill("bar") }, { k1: Array(2).fill("baz") }],
+ [{ k1: "w" }, { k1: "e" }, { k1: "v" }],
+ [
+  { orderBy: (a, b) => a.localeCompare(b), sortBy: "k1" }, // Sort by
+ ],
+);
+
+//=> [{ k1: "e" }, { k1: "v" }, { k1: "w" }]
+
+sortSheet(
+ [{ k1: Array(3).fill("bar") }, { k1: Array(2).fill("baz") }],
  [
   { orderBy: (a, b) => a.length - b.length, sortBy: "k1" }, // Sort by
  ],
 );
 
-//=> [{ k1: [ "foo" ] }, { k1: [ "baz", "baz" ] }, { k1: [ "bar", "bar", "bar" ] }]
+//=> [{ k1: [ "baz", "baz" ] }, { k1: [ "bar", "bar", "bar" ] }]
 ```
 
 ## API

@@ -1,4 +1,4 @@
-const sortSheet = require("../index");
+const sortSheet = require("./index");
 
 it("should throw an error if first argument is not an array", () => {
   expect(() => sortSheet(1)).toThrowError("Expected an array");
