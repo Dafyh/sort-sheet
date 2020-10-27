@@ -132,6 +132,22 @@ it("should sort multiple columns", () => {
     { orderBy: (a, b) => a - b, sortBy: "k2" },
   ]);
 
+  const fooBar = [
+    { k1: "a", k2: 6, k3: "foo" },
+    { k1: "b", k2: 7, k3: "bar" },
+    { k1: "a", k2: 6, k3: "baz" },
+    { k1: "a", k2: 9, k3: "rab" },
+    { k1: "b", k2: 5, k3: "zab" },
+    { k1: "a", k2: 6, k3: "foo" },
+  ];
+  console.log(
+    sortSheet(fooBar, [
+      { orderBy: "asc", sortBy: "k1" }, // Sort by
+      { orderBy: "desc", sortBy: "k2" }, // Then by
+      { orderBy: "asc", sortBy: "k3" }, // Then by
+    ]),
+  );
+
   expect(arraySorted).toEqual([
     { k1: "a", k2: 1, k3: { k4: { k5: new Date(2020, 10, 8, 22) } } },
     { k1: "a", k2: 4, k3: { k4: { k5: new Date(2020, 10, 7, 22) } } },

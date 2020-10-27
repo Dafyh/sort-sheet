@@ -1,6 +1,6 @@
 {
   "name": "sort-sheet",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Sort like a spreadsheet",
   "author": "MARTEAU Nicolas <nico_mart@hotmail.fr>",
   "main": "index.js",

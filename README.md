@@ -14,50 +14,49 @@ $ npm install sort-sheet
 ```js
 const sortSheet = require("sort-sheet");
 
-sortSheet([{ k1: "a", k2: 1 }, { k1: "b", k2: 20 }, { k1: "a", k2: 6 }], [
+const fooBar = [
+  { k1: "a", k2: 6, k3: "foo" },
+  { k1: "b", k2: 7, k3: "bar" },
+  { k1: "a", k2: 6, k3: "baz" },
+  { k1: "a", k2: 9, k3: "rab" },
+  { k1: "b", k2: 5, k3: "zab" },
+  { k1: "a", k2: 6, k3: "foo" },
+];
+sortSheet(fooBar, [
  { orderBy: "asc", sortBy: "k1" }, // Sort by
  { orderBy: "desc", sortBy: "k2" }, // Then by
+ { orderBy: "asc", sortBy: "k3" }, // Then by
 ]);
 
-//=> [{ k1: "a", k2: 6 }, { k1: "a", k2: 1 }, { k1: "b", k2: 20 }]
-
-sortSheet(
- [
-  { k1: "a", k2: { k3: "t" } },
-  { k1: "b", k2: { k3: "r" } },
-  { k1: "a", k2: { k3: "s" } },
-  { k1: "u", k2: { k3: "s" } },
- ],
- [
-  { orderBy: "asc", sortBy: "k2.k3" }, // Sort by
-  { orderBy: "desc", sortBy: "k1" }, // Then by
- ],
-);
-
-/*
+/*=>
 [
- { k1: "b", k2: { k3: "r" } },
- { k1: "u", k2: { k3: "s" } },
- { k1: "a", k2: { k3: "s" } },
- { k1: "a", k2: { k3: "t" } },
+ { k1: "a", k2: 9, k3: "rab" },
+ { k1: "a", k2: 6, k3: "baz" },
+ { k1: "a", k2: 6, k3: "foo" },
+ { k1: "a", k2: 6, k3: "foo" },
+ { k1: "b", k2: 7, k3: "bar" },
+ { k1: "b", k2: 5, k3: "zab" },
 ]
 */
 
-sortSheet(
- [{ k1: "w" }, { k1: "e" }, { k1: "v" }],
- [
-  { orderBy: (a, b) => a.localeCompare(b), sortBy: "k1" }, // Sort by
- ],
-);
+const bar = [{ k1: { k2: "t" } }, { k1: { k2: "r" } }, { k1: { k2: "s" } }]
+sortSheet(bar,[
+ { orderBy: "asc", sortBy: "k1.k2" }
+]);
+
+//=> [{ k1: { k2: "r" } }, { k1: { k2: "s" }, { k1: { k2: "t" } } }]
+
+const baz = [{ k1: "w" }, { k1: "e" }, { k1: "v" }]
+sortSheet(baz, [
+ { orderBy: (a, b) => a.localeCompare(b), sortBy: "k1" }, // Sort by
+]);
 
 //=> [{ k1: "e" }, { k1: "v" }, { k1: "w" }]
 
-sortSheet(
- [{ k1: Array(3).fill("bar") }, { k1: Array(2).fill("baz") }],
- [
-  { orderBy: (a, b) => a.length - b.length, sortBy: "k1" }, // Sort by
- ],
-);
+const foo = [{ k1: Array(3).fill("bar") }, { k1: Array(2).fill("baz") }]
+sortSheet(fooBaz, [
+ { orderBy: (a, b) => a.length - b.length, sortBy: "k1" }, // Sort by
+]);
 
 //=> [{ k1: [ "baz", "baz" ] }, { k1: [ "bar", "bar", "bar" ] }]
 ```
@@ -78,7 +77,7 @@ Type: `Option[]`
 
 ```ts
 interface Option {
- orderBy?: "asc" | "desc" | Function;
+ orderBy?: "asc" | "desc" | ((a: any, b: any) => number);
  sortBy: string;
 }
 ```
