@@ -17,13 +17,12 @@ module.exports = (arr, opts) => {
       .map(({ orderBy, sortBy }) => {
         const [prev, next] = [getFldVal(a, sortBy), getFldVal(b, sortBy)];
 
-        if (typeof orderBy === "function") {
-          return orderBy(prev, next);
-        }
+        if (typeof orderBy === "function") return orderBy(prev, next);
+        if (typeof prev !== "boolean" && (!prev || !next)) return 0;
 
-        const val = !Number.isNaN(Number(prev)) ? prev - next : String(prev).localeCompare(String(next));
+        const val = Number.isNaN(Number(prev)) ? String(prev).localeCompare(String(next)) : prev - next;
 
-        return typeof prev !== "boolean" && (!prev || !next) ? 0 : orderBy === "desc" ? -val : val;
+        return orderBy === "desc" ? -val : val;
       })
       .find(Boolean),
   );
